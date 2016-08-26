@@ -27,6 +27,9 @@
 @import "partials/buttons";
 @import "partials/forms";
 
+// Custom Components
+@import "partials/tooltip";
+
 // Components
 @import "partials/component-animations";
 @import "partials/dropdowns";
@@ -51,10 +54,12 @@
 @import "partials/close";
 
 // Components w/ JavaScript
+/*
 @import "partials/modals";
 @import "partials/tooltip";
 @import "partials/popovers";
 @import "partials/carousel";
+*/
 
 // Utility classes
 @import "partials/utilities";
