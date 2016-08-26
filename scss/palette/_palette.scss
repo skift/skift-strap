@@ -1,0 +1,44 @@
+$softBlack: #5e5e5e;
+$black: #000;
+$white: #fff;
+$softGray: #bcbcbd;
+$gray: #58585a;
+$yellow: #fff200;
+$green: #076600;
+$blue: #002851;
+$purple: #301455;
+
+// *** BUTTONS *** 
+
+//btn-primary
+$btn-primary-text: $black;
+$btn-primary-text-hover: $black;
+$btn-primary-text-active: $black;
+$btn-primary-bg: $yellow;
+$btn-primary-bg-hover: #fff87c;
+$btn-primary-bg-active: #d7cc00;
+$btn-primary-border: $yellow;
+$btn-primary-border-hover: #fff87c;
+$btn-primary-border-active: #d7cc00;
+
+//btn-clear
+$btn-clear-text: $softBlack;
+$btn-clear-text-hover: $softBlack;
+$btn-clear-text-active: $softBlack;
+$btn-clear-bg: $white;
+$btn-clear-bg-hover: $white;
+$btn-clear-bg-active: $white;
+$btn-clear-border: $softBlack;
+$btn-clear-border-hover: $softGray;
+$btn-clear-border-active: $gray;
+
+//btn-black
+$btn-black-text: $white;
+$btn-black-text-hover: $black;
+$btn-black-text-active: $white;
+$btn-black-bg: $black;
+$btn-black-bg-hover: $white;
+$btn-black-bg-active: $gray;
+$btn-black-border: $black;
+$btn-black-border-hover: $black;
+$btn-black-border-active: $gray;

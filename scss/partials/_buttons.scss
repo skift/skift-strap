@@ -1,0 +1,167 @@
+//
+// Buttons
+// --------------------------------------------------
+
+
+// Base styles
+// --------------------------------------------------
+
+@mixin btn {
+    display: inline-block;
+  margin-bottom: 0; // For input.btn
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  text-decoration: none;
+  white-space: nowrap;
+  
+  padding:15px 30px;
+  font-size:15px;
+
+  border:1px solid $yellow;
+  
+  font-family: 'montserrat',sans-serif;
+  font-weight: 200;
+  line-height: normal;
+
+  &,
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &.focus {
+//     color: $btn-default-color;
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    outline: 0;
+    background-image: none;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+//     cursor: $cu;
+    
+  }
+}
+.btn {
+  @include btn();
+}
+
+@mixin btn-primary() {
+  border-color:$btn-primary-border;
+  background-color:$btn-primary-bg;
+  color:$btn-primary-text;
+  
+  &:hover {
+    border-color:$btn-primary-border-hover;
+    background-color:$btn-primary-bg-hover;
+    color:$btn-primary-text-hover;
+  }
+  
+  &:active {
+    border-color:$btn-primary-border-active;
+    background-color:$btn-primary-bg-active;
+    color:$btn-primary-text-active;
+  }
+}
+
+.btn-primary, .btn-yellow {
+  @include btn-primary();
+}
+
+.btn-clear {
+  border-color:$btn-clear-border;
+  background-color:$btn-clear-bg;
+  color:$btn-clear-text;
+  
+  &:hover {
+    border-color:$btn-clear-border-hover;
+    background-color:$btn-clear-bg-hover;
+    color:$btn-clear-text-hover;
+  }
+  
+  &:active {
+    border-color:$btn-clear-border-active;
+    background-color:$btn-clear-bg-active;
+    color:$btn-clear-text-active;
+  }
+}
+
+.btn-black {
+  border-color:$btn-black-border;
+  background-color:$btn-black-bg;
+  color:$btn-black-text;
+  
+  &:hover {
+    border-color:$btn-black-border-hover;
+    background-color:$btn-black-bg-hover;
+    color:$btn-black-text-hover;
+  }
+  
+  &:active {
+    border-color:$btn-black-border-active;
+    background-color:$btn-black-bg-active;
+    color:$btn-black-text-active;
+  }
+}
+
+.btn-xl {
+  padding:20px 40px;
+  font-size:19px;
+}
+
+.btn-lg {
+  padding:17px 35px;
+  font-size:17px;
+}
+
+.btn-sm {
+  padding:8px 20px;
+  font-size:13px;
+}
+
+.btn-xs {
+  padding:7px 15px;
+  font-size:11px;
+}
+
+a.btn {
+  &.disabled,
+  fieldset[disabled] & {
+    pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
+  }
+}
+
+// Block button
+// --------------------------------------------------
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+// Vertically space out multiple block buttons
+.btn-block + .btn-block {
+  margin-top: 5px;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}

@@ -1,20 +1,361 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  
+<meta charset="utf-8">
 
-  <title>Skift Strap v0</title>
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
+<title>Skift Strap v0</title>
+<meta name="description" content="The HTML5 Herald">
+<meta name="author" content="SitePoint">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="css/skift-strap.css">
+<link rel="stylesheet" href="css/skift-strap.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<style>
+  body {
+    margin:20px;
+  }
+</style>
+  
+<script type="text/javascript">
+
+//Functions to load HubSpot forms asynchronously
+var hubspotLoopInitiated = false;
+var queuedForms = [];
+
+function queueHubspotForm(form) {
+  form.css = form.css || '';
+  form.submitButtonClass = form.submitButtonClass || 'btn btn-primary';
+  form.inlineMessage = form.inlineMessage || 'Thank you!'
+  
+  form.onBeforeFormInit= function(ctx) {
+    var prevOnReady = ctx.onFormReady;
+    
+    ctx.onFormReady = function(form) {
+            
+      form.find(".hs-form-field").addClass("form-group");
+      form.find("label").addClass("control-label");
+      form.find(".hs-input").addClass("form-control");
+      
+      if (!form.hasClass("noPlaceholders")) {
+        form.find(".hs-input").each(function() {
+          var fieldName = $(this).closest(".hs-form-field").find("label span:first").text();
+          $(this).attr("placeholder",fieldName); 
+        });
+      }
+      
+      form.find(".hs-input").blur(function() {
+        var $this = $(this);
+        setTimeout(function() {
+          if ($this.hasClass("error")) {
+            $this.attr("class","form-control error").closest(".hs-form-field").addClass("has-error").find(".hs-error-msgs").show();
+          } else {
+            $this.closest(".hs-form-field").removeClass("has-error");
+          }
+        },100);
+      }).keyup(function() {
+        var $this = $(this);
+        if (!$this.hasClass("error")) {
+          $this.closest(".hs-form-field").removeClass("has-error").find(".hs-error-msgs").hide();
+        }
+      });
+      
+      if (form.hasClass("hideLabels")) {
+        form.find("label").remove();
+      }
+      
+      if (typeof prevOnReady === "function") {
+        prevOnReady();
+      }
+      
+    };
+    
+    return ctx;
+  };
+  
+  queuedForms.push(form);
+  
+  fireHubspotForms(true);
+}
+
+function fireHubspotForms(fromQueue) {
+  
+  if (typeof hbspt !== "undefined" && hbspt) {
+    
+    //hubspot library is loaded, load the forms
+    for (var i = queuedForms.length-1; i >= 0; i--) {
+      hbspt.forms.create(queuedForms[i]); // create the form
+      queuedForms.pop(); // remove it from the queue
+    }
+  
+  } else {
+
+    if (!hubspotLoopInitiated || !fromQueue) {
+      hubspotLoopInitiated = true;
+      setTimeout(fireHubspotForms, 250);
+    }  
+    
+  } 
+   
+}
+</script>
+<script src="https://use.fontawesome.com/14cf8fb7ac.js"></script>
 
 </head>
 
 <body>
   
-<h1>Heading 1</h1>
+<h1>Typography (Heading 1)</h1>
 <h2>Heading 2</h2>
 <h3>Heading 3</h3>
+
+<p class="sub-heading">Sub Heading (.sub-heading)</p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac magna finibus, varius lacus rhoncus, suscipit arcu. Proin scelerisque mi lacus, id accumsan mauris faucibus nec. Cras rutrum luctus ligula vitae rutrum. Vivamus sit amet nunc nec arcu convallis malesuada quis ac nunc. In ullamcorper eros eu sem ultrices, in volutpat tellus efficitur. Sed eleifend dolor justo, vel commodo metus sagittis vel. Vestibulum sagittis ipsum sed sagittis pharetra.</p>
+
+<p class="article-module">Proin hendrerit consectetur tincidunt. Morbi et erat vitae velit rhoncus dictum. In hac habitasse platea dictumst. Mauris lectus ipsum, elementum at sapien nec, elementum molestie nisl. Donec porta, ipsum non euismod interdum, nulla arcu sollicitudin lorem, eu imperdiet diam odio eget magna. Praesent id interdum odio. Donec purus arcu, sollicitudin non dolor in, porta pulvinar ligula. (.article-module)</p>
+
+<p>Pellentesque aliquet imperdiet lectus, sed volutpat dolor rutrum eu. Donec diam est, scelerisque iaculis suscipit a, blandit eu leo. Nulla non tincidunt enim. Morbi quis libero sit amet ipsum dignissim malesuada et vitae lacus. Sed commodo nisl quis orci tempus gravida. Donec libero lectus, aliquet in erat sit amet, varius vestibulum quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sodales porttitor finibus. Curabitur id sem a eros pellentesque porta. Cras mi dolor, laoreet placerat orci vitae, facilisis vehicula odio.</p>
+
+
+<h1>Elements</h1>
+
+<h2>Buttons</h2>
+
+<p class="sub-heading">Primary Button (.btn .btn-primary, .btn .btn-yellow)</p>
+<p>
+  <button class="btn btn-primary btn-xl">Button</button>
+  <a href="#" class="btn btn-primary btn-xl">Button Link</a>
+  <strong>.btn-xl</strong>
+</p>
+<p>
+  <button class="btn btn-primary btn-lg">Button</button>
+  <a href="#" class="btn btn-primary btn-lg">Button Link</a>
+  <strong>.btn-lg</strong>
+</p>
+
+<p>
+  <button class="btn btn-primary">Button</button>
+  <a href="#" class="btn btn-primary">Button Link</a>
+  <strong>Normal size (no size class)</strong>
+</p>
+
+<p>
+  <button class="btn btn-primary btn-sm">Button</button>
+  <a href="#" class="btn btn-primary btn-sm">Button Link</a>
+  <strong>.btn-sm</strong>
+</p>
+
+<p>
+  <button class="btn btn-primary btn-xs">Button</button>
+  <a href="#" class="btn btn-primary btn-xs">Button Link</a>
+  <strong>.btn-xs</strong>
+</p>
+
+<p class="sub-heading">Clear Button (.btn .btn-clear)</p>
+<p>
+  <button class="btn btn-clear btn-xl">Button</button>
+  <a href="#" class="btn btn-clear btn-xl">Button Link</a>
+  <strong>.btn-xl</strong>
+</p>
+
+<p>
+  <button class="btn btn-clear btn-lg">Button</button>
+  <a href="#" class="btn btn-clear btn-lg">Button Link</a>
+  <strong>.btn-lg</strong>
+</p>
+
+<p>
+  <button class="btn btn-clear">Button</button>
+  <a href="#" class="btn btn-clear">Button Link</a>
+  <strong>Normal size (no size class)</strong>
+</p>
+
+<p>
+  <button class="btn btn-clear btn-sm">Button</button>
+  <a href="#" class="btn btn-clear btn-sm">Button Link</a>
+  <strong>.btn-sm</strong>
+</p>
+
+<p>
+  <button class="btn btn-clear btn-xs">Button</button>
+  <a href="#" class="btn btn-clear btn-xs">Button Link</a>
+  <strong>.btn-xs</strong>
+</p>
+
+<p class="sub-heading">Black Button (.btn .btn-black)</p>
+<p>
+  <button class="btn btn-black btn-xl">Button</button>
+  <a href="#" class="btn btn-black btn-xl">Button Link</a>
+  <strong>.btn-xl</strong>
+</p>
+
+<p>
+  <button class="btn btn-black btn-lg">Button</button>
+  <a href="#" class="btn btn-black btn-lg">Button Link</a>
+  <strong>.btn-lg</strong>
+</p>
+
+<p>
+  <button class="btn btn-black">Button</button>
+  <a href="#" class="btn btn-black">Button Link</a>
+  <strong>Normal size (no size class)</strong>
+</p>
+
+<p>
+  <button class="btn btn-black btn-sm">Button</button>
+  <a href="#" class="btn btn-black btn-sm">Button Link</a>
+  <strong>.btn-sm</strong>
+</p>
+
+<p>
+  <button class="btn btn-black btn-xs">Button</button>
+  <a href="#" class="btn btn-black btn-xs">Button Link</a>
+  <strong>.btn-xs</strong>
+</p>
+
+<code>
+  <p>
+    &lt;button class="btn btn-primary btn-xl"&gt;Button&lt;/button&gt;<br/>
+    &lt;a href="#" class="btn btn-primary btn-xl"&gt;Button Link&lt;/a&gt;
+  </p>
+  
+  <p>
+    &lt;button class="btn btn-clear btn-lg"&gt;Button&lt;/button&gt;<br/>
+    &lt;a href="#" class="btn btn-clear btn-lg"&gt;Button Link&lt;/a&gt;
+  </p>
+  
+  <p>
+    &lt;button class="btn btn-black"&gt;Button&lt;/button&gt;<br/>
+    &lt;a href="#" class="btn btn-black"&gt;Button Link&lt;/a&gt;
+  </p>
+  
+  <p>
+    &lt;button class="btn btn-primary btn-sm"&gt;Button&lt;/button&gt;<br/>
+    &lt;a href="#" class="btn btn-primary btn-sm"&gt;Button Link&lt;/a&gt;
+  </p>
+  
+  <p>
+    &lt;button class="btn btn-primary btn-xs"&gt;Button&lt;/button&gt;<br/>
+    &lt;a href="#" class="btn btn-primary btn-xs"&gt;Button Link&lt;/a&gt;
+  </p>
+</code>
+
+<div class="radio-control">
+  <input type="radio" id="radio1" value="1" name="radio" class="form-control" checked="true">
+  <label for="radio1" class="control-label">Radio Button 1</label>
+</div>
+<div class="radio-control">
+  <input type="radio" id="radio2" value="2" name="radio" class="form-control">
+  <label for="radio2" class="control-label">Radio Button 2</label>
+</div>
+
+<code>
+<p>
+&lt;div class=&quot;radio-control&quot;&gt;<br/>
+  &nbsp;&nbsp;&nbsp;&lt;input type=&quot;radio&quot; id=&quot;radio1&quot; value=&quot;1&quot; name=&quot;radio&quot; class=&quot;form-control&quot; checked=&quot;true&quot;&gt;<br/>
+  &nbsp;&nbsp;&nbsp;&lt;label for=&quot;radio1&quot; class=&quot;control-label&quot;&gt;Radio Button 1&lt;/label&gt;<br/>
+&lt;/div&gt; <br/>
+<br/>
+&lt;div class=&quot;radio-control&quot;&gt;<br/>
+  &nbsp;&nbsp;&nbsp;&lt;input type=&quot;radio&quot; id=&quot;radio2&quot; value=&quot;2&quot; name=&quot;radio&quot; class=&quot;form-control&quot;&gt;<br/>
+  &nbsp;&nbsp;&nbsp;&lt;label for=&quot;radio2&quot; class=&quot;control-label&quot;&gt;Radio Button 2&lt;/label&gt; <br/>
+&lt;/div&gt;
+</p>
+</code>
+
+<div class="checkbox-control">
+  <input type="checkbox" id="check1" name="checkbox" class="form-control" checked="true">
+  <label for="check1" class="control-label">Checkbox 1</label>
+</div>
+<div class="checkbox-control">
+  <input type="checkbox" id="check2" name="checkbox" class="form-control">
+  <label for="check2" class="control-label">Checkbox 2</label>
+</div>
+
+<code>
+<p>
+&lt;div class=&quot;checkbox-control&quot;&gt;<br/>
+  &nbsp;&nbsp;&nbsp;&lt;input type=&quot;checkbox&quot; id=&quot;check1&quot; name=&quot;checkbox1&quot; class=&quot;form-control&quot; checked=&quot;true&quot;&gt;<br/>
+  &nbsp;&nbsp;&nbsp;&lt;label for=&quot;check1&quot; class=&quot;control-label&quot;&gt;Checkbox 1&lt;/label&gt;<br/>
+&lt;/div&gt;
+</p>
+</code>
+
+<div class="switch-control">
+  <input type="checkbox" id="switch1" name="switch1" class="form-control">
+  <div class="switch"><div class="switch-knob"></div></div>
+  <label for="switch1" class="control-label">Switch 1</label>
+</div>
+
+<div class="switch-control">
+  <input type="checkbox" id="switch2" name="switch2" class="form-control" checked="true">
+  <div class="switch"><div class="switch-knob"></div></div>
+  <label for="switch2" class="control-label">Switch 2</label>
+</div>
+
+<code>
+<p>
+&lt;div class="switch-control"&gt;<br/>
+  &nbsp;&nbsp;&nbsp;&lt;input type="checkbox" id="switch1" name="switch1" class="form-control"&gt;<br/>
+  &nbsp;&nbsp;&nbsp;&lt;div class="switch"&gt;<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="switch-knob"&gt;&lt;/div&gt;<br/>
+  &nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>
+  &nbsp;&nbsp;&nbsp;&lt;label for="switch1" class="control-label"&gt;Switch 1&lt;/label&gt;<br/>
+&lt;/div&gt;
+</p>
+</code>
+
+<h2>Text Input</h2>
+
+<div class="form-group">
+  <label class="control-label" for="example">Input</label>
+  <input name="example" placeholder="For example" class="form-control" />
+</div>
+<div class="form-group">
+  <label class="control-label" for="example">Textarea</label>
+  <textarea name="example" placeholder="For a longer example" class="form-control"></textarea>
+</div>
+<div class="form-group has-success">
+  <label class="control-label" for="example">Input with Success</label>
+  <input name="example" placeholder="For example" class="form-control" />
+</div>
+<div class="form-group has-warning">
+  <label class="control-label" for="example">Input with Warning</label>
+  <input name="example" placeholder="For example" class="form-control" />
+</div>
+<div class="form-group has-error">
+  <label class="control-label" for="example">Input with Error</label>
+  <input name="example" placeholder="For example" class="form-control" />
+</div>
+
+<form class="form-inline">
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+    <div class="input-group">
+      <div class="input-group-addon">$</div>
+      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+      <div class="input-group-addon">.00</div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary btn-sm">Transfer cash</button>
+</form>
+
+<br/><br/>
+<h2>Hubspot</h2>
+<script>
+ queueHubspotForm({ 
+   portalId: '449646',
+   formId: '7bb7d346-d151-491f-a576-ab4cf3e46e0f',
+   cssClass: ''   
+ });
+</script>
+
+
+<!--[if lte IE 8]>
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+<![endif]-->
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
 
 </body>
 </html>
