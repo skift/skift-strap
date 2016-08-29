@@ -30,9 +30,11 @@ function queueHubspotForm(form) {
   
   form.onBeforeFormInit= function(ctx) {
     var prevOnReady = ctx.onFormReady;
+    var formContainer = ctx.formContainer;
     
     ctx.onFormReady = function(form) {
-            
+      form.parent().appendTo(formContainer);
+      
       form.find(".hs-form-field").addClass("form-group");
       form.find("label").addClass("control-label");
       form.find(".hs-input").addClass("form-control");
@@ -65,7 +67,7 @@ function queueHubspotForm(form) {
       }
       
       if (typeof prevOnReady === "function") {
-        prevOnReady();
+        prevOnReady(form);
       }
       
     };
@@ -105,18 +107,19 @@ function fireHubspotForms(fromQueue) {
 
 <body>
   
-<h1>Typography (Heading 1)</h1>
-<h2>Heading 2</h2>
-<h3>Heading 3</h3>
+<h1>Typography (Heading 1 &lt;h1&gt;)</h1>
+<h2>Heading 2 (&lt;h2&gt;)</h2>
+<h3>Heading 3 (&lt;h3&gt;)</h3>
 
-<p class="sub-heading">Sub Heading (.sub-heading)</p>
+<p class="sub-heading">Sub Heading (&lt;p class="sub-heading"&gt;...&lt;/p&gt;)</p>
 
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac magna finibus, varius lacus rhoncus, suscipit arcu. Proin scelerisque mi lacus, id accumsan mauris faucibus nec. Cras rutrum luctus ligula vitae rutrum. Vivamus sit amet nunc nec arcu convallis malesuada quis ac nunc. In ullamcorper eros eu sem ultrices, in volutpat tellus efficitur. Sed eleifend dolor justo, vel commodo metus sagittis vel. Vestibulum sagittis ipsum sed sagittis pharetra.</p>
 
-<p class="article-module">Proin hendrerit consectetur tincidunt. Morbi et erat vitae velit rhoncus dictum. In hac habitasse platea dictumst. Mauris lectus ipsum, elementum at sapien nec, elementum molestie nisl. Donec porta, ipsum non euismod interdum, nulla arcu sollicitudin lorem, eu imperdiet diam odio eget magna. Praesent id interdum odio. Donec purus arcu, sollicitudin non dolor in, porta pulvinar ligula. (.article-module)</p>
+<p class="article-module">Proin hendrerit consectetur tincidunt. Morbi et erat vitae velit rhoncus dictum. In hac habitasse platea dictumst. Mauris lectus ipsum, elementum at sapien nec, elementum molestie nisl. Donec porta, ipsum non euismod interdum, nulla arcu sollicitudin lorem, eu imperdiet diam odio eget magna. Praesent id interdum odio. Donec purus arcu, sollicitudin non dolor in, porta pulvinar ligula. (&lt;p class="article-module"&gt;...&lt;/p&gt;)</p>
 
 <p>Pellentesque aliquet imperdiet lectus, sed volutpat dolor rutrum eu. Donec diam est, scelerisque iaculis suscipit a, blandit eu leo. Nulla non tincidunt enim. Morbi quis libero sit amet ipsum dignissim malesuada et vitae lacus. Sed commodo nisl quis orci tempus gravida. Donec libero lectus, aliquet in erat sit amet, varius vestibulum quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sodales porttitor finibus. Curabitur id sem a eros pellentesque porta. Cras mi dolor, laoreet placerat orci vitae, facilisis vehicula odio.</p>
 
+<blockquote>This is a &lt;blockquote&gt;</blockquote>
 
 <h1>Elements</h1>
 
@@ -152,37 +155,6 @@ function fireHubspotForms(fromQueue) {
   <strong>.btn-xs</strong>
 </p>
 
-<p class="sub-heading">Clear Button (.btn .btn-clear)</p>
-<p>
-  <button class="btn btn-clear btn-xl">Button</button>
-  <a href="#" class="btn btn-clear btn-xl">Button Link</a>
-  <strong>.btn-xl</strong>
-</p>
-
-<p>
-  <button class="btn btn-clear btn-lg">Button</button>
-  <a href="#" class="btn btn-clear btn-lg">Button Link</a>
-  <strong>.btn-lg</strong>
-</p>
-
-<p>
-  <button class="btn btn-clear">Button</button>
-  <a href="#" class="btn btn-clear">Button Link</a>
-  <strong>Normal size (no size class)</strong>
-</p>
-
-<p>
-  <button class="btn btn-clear btn-sm">Button</button>
-  <a href="#" class="btn btn-clear btn-sm">Button Link</a>
-  <strong>.btn-sm</strong>
-</p>
-
-<p>
-  <button class="btn btn-clear btn-xs">Button</button>
-  <a href="#" class="btn btn-clear btn-xs">Button Link</a>
-  <strong>.btn-xs</strong>
-</p>
-
 <p class="sub-heading">Black Button (.btn .btn-black)</p>
 <p>
   <button class="btn btn-black btn-xl">Button</button>
@@ -214,6 +186,37 @@ function fireHubspotForms(fromQueue) {
   <strong>.btn-xs</strong>
 </p>
 
+<p class="sub-heading">Clear Button (.btn .btn-clear)</p>
+<p>
+  <button class="btn btn-clear btn-xl">Button</button>
+  <a href="#" class="btn btn-clear btn-xl">Button Link</a>
+  <strong>.btn-xl</strong>
+</p>
+
+<p>
+  <button class="btn btn-clear btn-lg">Button</button>
+  <a href="#" class="btn btn-clear btn-lg">Button Link</a>
+  <strong>.btn-lg</strong>
+</p>
+
+<p>
+  <button class="btn btn-clear">Button</button>
+  <a href="#" class="btn btn-clear">Button Link</a>
+  <strong>Normal size (no size class)</strong>
+</p>
+
+<p>
+  <button class="btn btn-clear btn-sm">Button</button>
+  <a href="#" class="btn btn-clear btn-sm">Button Link</a>
+  <strong>.btn-sm</strong>
+</p>
+
+<p>
+  <button class="btn btn-clear btn-xs">Button</button>
+  <a href="#" class="btn btn-clear btn-xs">Button Link</a>
+  <strong>.btn-xs</strong>
+</p>
+
 <code>
   <p>
     &lt;button class="btn btn-primary btn-xl"&gt;Button&lt;/button&gt;<br/>
@@ -241,6 +244,8 @@ function fireHubspotForms(fromQueue) {
   </p>
 </code>
 
+<h2>Radio Buttons</h2>
+
 <div class="radio-control">
   <input type="radio" id="radio1" value="1" name="radio" class="form-control" checked="true">
   <label for="radio1" class="control-label">Radio Button 1</label>
@@ -264,6 +269,8 @@ function fireHubspotForms(fromQueue) {
 </p>
 </code>
 
+<h2>Checkboxes</h2>
+
 <div class="checkbox-control">
   <input type="checkbox" id="check1" name="checkbox" class="form-control" checked="true">
   <label for="check1" class="control-label">Checkbox 1</label>
@@ -281,6 +288,8 @@ function fireHubspotForms(fromQueue) {
 &lt;/div&gt;
 </p>
 </code>
+
+<h2>Switches</h2>
 
 <div class="switch-control">
   <input type="checkbox" id="switch1" name="switch1" class="form-control">
@@ -306,7 +315,8 @@ function fireHubspotForms(fromQueue) {
 </p>
 </code>
 
-<h2>Custom Elements</h2>
+<h2>Tooltips</h2>
+<p>Use in conjunction with a Javascript to show/hide and position next to mouse</p>
 
 <br/>
 <div class="tooltip tooltip-top tooltip-yellow">Tooltip</div>
@@ -330,12 +340,12 @@ function fireHubspotForms(fromQueue) {
     &lt;div class="tooltip tooltip-right tooltip-yellow"&gt;Tooltip&lt;/div&gt;<br/>
     &lt;div class="tooltip tooltip-bottom tooltip-yellow"&gt;Tooltip&lt;/div&gt;<br/>
     &lt;div class="tooltip tooltip-left tooltip-yellow"&gt;Tooltip&lt;/div&gt;<br/>
-    <br/>
+    &lt;br /&gt;<br/>
     &lt;div class="tooltip tooltip-top tooltip-black"&gt;Tooltip&lt;/div&gt;<br/>
     &lt;div class="tooltip tooltip-right tooltip-black"&gt;Tooltip&lt;/div&gt;<br/>
     &lt;div class="tooltip tooltip-bottom tooltip-black"&gt;Tooltip&lt;/div&gt;<br/>
     &lt;div class="tooltip tooltip-left tooltip-black"&gt;Tooltip&lt;/div&gt;<br/>
-    <br/>
+    &lt;br /&gt;<br/>
     &lt;div class="tooltip tooltip-top tooltip-clear"&gt;Tooltip&lt;/div&gt;<br/>
     &lt;div class="tooltip tooltip-right tooltip-clear"&gt;Tooltip&lt;/div&gt;<br/>
     &lt;div class="tooltip tooltip-bottom tooltip-clear"&gt;Tooltip&lt;/div&gt;<br/>
@@ -380,14 +390,32 @@ function fireHubspotForms(fromQueue) {
 </form>
 
 <br/><br/>
-<h2>Hubspot</h2>
-<script>
- queueHubspotForm({ 
-   portalId: '449646',
-   formId: '7bb7d346-d151-491f-a576-ab4cf3e46e0f',
-   cssClass: ''   
- });
-</script>
+<h2>Hubspot Form Example</h2>
+<div id="hbspt-container">
+  <script>
+   queueHubspotForm({ 
+     portalId: '449646',
+     formId: '7bb7d346-d151-491f-a576-ab4cf3e46e0f',
+     cssClass: '',
+     formContainer: '#hbspt-container'
+   });
+  </script>
+</div>
+
+<code>
+<p>
+&lt;div id="hbspt-container"&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;script&gt;<br/>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;queueHubspotForm({<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;portalId: '449646',<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;formId: '7bb7d346-d151-491f-a576-ab4cf3e46e0f',<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cssClass: '',<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;formContainer: '#hbspt-container'<br/>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br/>
+&nbsp;&nbsp;&nbsp;&lt;/script&gt;<br/>
+&lt;/div&gt;
+</p>
+</code>
 
 
 <!--[if lte IE 8]>

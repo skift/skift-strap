@@ -7,7 +7,7 @@
 // --------------------------------------------------
 
 @mixin btn {
-    display: inline-block;
+  display: inline-block;
   margin-bottom: 0; // For input.btn
   text-align: center;
   vertical-align: middle;
@@ -18,13 +18,15 @@
   white-space: nowrap;
   
   padding:15px 30px;
-  font-size:15px;
+  font-size:12px;
+  font-weight: 200;
 
   border:1px solid $yellow;
   
   font-family: 'montserrat',sans-serif;
-  font-weight: 200;
   line-height: normal;
+  
+  @include transition(all 0.3s);
 
   &,
   &:active,
@@ -119,22 +121,22 @@
 
 .btn-xl {
   padding:20px 40px;
-  font-size:19px;
+  font-size:16px;
 }
 
 .btn-lg {
   padding:17px 35px;
-  font-size:17px;
+  font-size:14px;
 }
 
 .btn-sm {
   padding:8px 20px;
-  font-size:13px;
+  font-size:12px;
 }
 
 .btn-xs {
   padding:7px 15px;
-  font-size:11px;
+  font-size:10px;
 }
 
 a.btn {
