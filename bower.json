@@ -1,0 +1,15 @@
+{
+  "name": "skift-strap",
+  "description": "Bootstrap for Skift",
+  "main": [],
+  "dependencies": {},
+  "devDependencies": {},
+  "moduleType": [],
+  "keywords": [],
+  "authors": [
+    "Mike Linden <ml@skift.com>"
+  ],
+  "license": "MIT",
+  "ignore": [],
+  "private": true
+}
