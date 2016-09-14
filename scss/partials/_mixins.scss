@@ -38,3 +38,26 @@
 @import "mixins/nav-vertical-align";
 @import "mixins/grid-framework";
 @import "mixins/grid";
+
+@mixin transform($trans) {
+    -ms-transform: $trans; /* IE9 */
+	 -moz-transform: $trans;  /* FF3.5/3.6 */
+	 	 -o-transform: $trans;  /* Opera 10.5 */
+-webkit-transform: $trans;  /* Saf3.1+ */
+				transform: $trans;  /* Newer browsers */
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin scale($x, $y) {
+	@include transform(scale($x,$y));
+}
+
+@mixin rotate($deg) {
+	@include transform(rotate($deg));
+}

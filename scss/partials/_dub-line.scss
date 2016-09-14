@@ -1,0 +1,53 @@
+.dub-line {    
+    position: relative;
+    
+    &:after {
+        content:'';
+        display: block;
+        position: absolute;
+    }
+    
+    &.dub-line-bottom {
+        border-bottom: 1px solid $lightGray;
+        
+        &:after {
+            bottom:-4px;
+            left:0;
+            width:100%;
+            border-bottom: 1px solid $lightGray;
+        }
+    }
+    
+    &.dub-line-top {
+        border-top: 1px solid $lightGray;
+        
+        &:after {
+            top:-4px;
+            left:0;
+            width:100%;
+            border-top: 1px solid $lightGray;
+        }
+    }
+    
+    &.dub-line-right {
+        border-right: 1px solid $lightGray;
+        
+        &:after {
+            right:-4px;
+            top:0;
+            height:100%;
+            border-right: 1px solid $lightGray;
+        }
+    }
+    
+    &.dub-line-left {
+        border-left: 1px solid $lightGray;
+        
+        &:after {
+            left:-4px;
+            top:0;
+            height:100%;
+            border-left: 1px solid $lightGray;
+        }
+    }
+}

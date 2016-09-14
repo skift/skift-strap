@@ -6,6 +6,9 @@
 // Normalize non-controls
 //
 // Restyle and baseline non-control form elements.
+.hbspt-form {
+    max-width: 400px;
+}
 
 fieldset {
   padding: 0;
@@ -190,7 +193,7 @@ input[type="checkbox"]:focus {
     z-index: 2;
   }
   
-  &>.form-control+.control-label::before {
+  &>.form-control+.control-label:before {
     display: block;
     content: '';
     position: absolute;
@@ -203,7 +206,7 @@ input[type="checkbox"]:focus {
     border: 1px solid $black;
   }
     
-  &>.form-control+.control-label::after {
+  &>.form-control+.control-label:after {
     position: absolute;
     display: inline-block;
     vertical-align: top;
@@ -222,7 +225,7 @@ input[type="checkbox"]:focus {
     opacity: 0;
   }
   
-  &>.form-control:checked+.control-label::after {
+  &>.form-control:checked+.control-label:after {
     transition: -webkit-transform 150ms ease-out, opacity 100ms ease-out;
     transition: transform 150ms ease-out, opacity 100ms ease-out;
     -webkit-transform: scale(1);

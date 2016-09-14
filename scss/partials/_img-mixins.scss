@@ -1,0 +1,130 @@
+@mixin before-image-overlay($opacity: 0.5){
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($black,$opacity);
+}
+
+@mixin image-overlay($width: 100%, $height:100%, $opacity: 0.5){
+    position: absolute;
+    top: 0;
+    width: $width;
+    height: $height;
+    background-color: rgba($black,$opacity);
+}
+
+@mixin arrow-basics($color, $opacity, $height){
+    //to be included in all arrow overlay renderings
+    //height must be specificed
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    $border-color: rgba($color,$opacity);
+    .top, .bottom{
+        height: 50%;
+        border-bottom: $height/2 solid;
+    }
+    .top{
+        top: 0;
+        border-color: $border-color;
+    }
+    .bottom{
+        bottom: 0;
+        border-color:$border-color;
+    }
+}
+
+@mixin arrow-right($color: white, $opacity: 0.3, $height: 100%){
+    //for right side tag > |
+    @include arrow-basics($color, $opacity, $height);
+    $overlay-border-width: 80px;
+    .bottom{
+        border-left: $overlay-border-width solid transparent;
+    }
+    .top{
+        border-left: $overlay-border-width solid transparent;
+        @include transform (rotateX(180deg));
+    }
+}
+
+@mixin arrow-left($color: white, $opacity: 0.3, $height: 100%){
+    //for left side tag with | >
+    @include arrow-basics($color, $opacity, $height);
+    $overlay-border-width: 80px;
+    .bottom{
+        border-right: $overlay-border-width solid transparent;
+        @include transform (rotateX(180deg));
+    }
+    .top{
+        border-right: $overlay-border-width solid transparent;
+    }
+}
+
+@mixin arrow-left-invert($color: white, $opacity: 0.3, $height: 100%){
+    //for left side tag < |
+    @include arrow-basics($color, $opacity, $height);
+    $overlay-border-width: 80px;
+    .bottom{
+        border-right: $overlay-border-width solid transparent;
+    }
+    .top{
+        border-right: $overlay-border-width solid transparent;
+        @include transform (rotateX(180deg));
+    }
+}
+
+@mixin arrow-right-invert($color: white, $opacity: 0.3, $height: 100%){
+    //for right side tag | <
+    @include arrow-basics($color, $opacity, $height);
+    $overlay-border-width: 80px;
+    .bottom{
+        border-left: $overlay-border-width solid transparent;
+        @include transform (rotateX(180deg));
+    }
+    .top{
+        border-left: $overlay-border-width solid transparent;
+    }
+}
+
+@mixin mobile-arrow-base($color: white, $opacity: 0.3, $height: 270, $top-offset: 88, $border-bottom: 230px) {
+    $true-height: $height+$top-offset;
+    // height: $true-height+px ;
+    .tag-overlay{
+        overflow: hidden;
+              
+        .top, .bottom{
+            position: absolute;
+            border-left: none;
+            top: $top-offset+px;
+            width: 50%;
+            border-bottom: $border-bottom solid rgba($color, $opacity);
+            @include transform (rotateX(0));
+            &:before{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100px;
+                background-color: rgba($color, $opacity);
+                top: -100px;
+            }
+        }
+
+        // left
+        .top{
+            left: 0;
+            &:before{
+                @include transform(skew(75deg));
+                left: -184px;
+            }
+        }
+
+        // right
+        .bottom{
+            right: 0;
+            &:before{
+                @include transform(skew(105deg));
+                left: 184px;
+            }
+        }
+    }
+}

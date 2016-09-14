@@ -4,6 +4,10 @@
  * Licensed under MIT (https://github.com/twbs/partials/blob/master/LICENSE)
  */
  
+img {
+    max-width:100%;
+    height:auto;
+}
 
 @import "palette/palette";
 @import "fonts/font-montserrat";
@@ -16,7 +20,7 @@
 // Reset and dependencies
 @import "partials/normalize";
 @import "partials/print";
-// @import "partials/glyphicons";
+// @import "partials/glyphicons"; //using fontawesome instead
 
 // Core CSS
 @import "partials/scaffolding";
@@ -29,29 +33,32 @@
 
 // Custom Components
 @import "partials/tooltip";
+@import "partials/dub-line";
+@import "partials/flag";
+@import "partials/tabs";
 
 // Components
-@import "partials/component-animations";
-@import "partials/dropdowns";
+//@import "partials/component-animations";
+//@import "partials/dropdowns";
 @import "partials/button-groups";
 @import "partials/input-groups";
-@import "partials/navs";
-@import "partials/navbar";
-@import "partials/breadcrumbs";
-@import "partials/pagination";
-@import "partials/pager";
+//@import "partials/navs";
+//@import "partials/navbar";
+//@import "partials/breadcrumbs";
+//@import "partials/pagination";
+//@import "partials/pager";
 @import "partials/labels";
 @import "partials/badges";
-@import "partials/jumbotron";
-@import "partials/thumbnails";
-@import "partials/alerts";
-@import "partials/progress-bars";
-@import "partials/media";
+//@import "partials/jumbotron";
+//@import "partials/thumbnails";
+//@import "partials/alerts";
+//@import "partials/progress-bars";
+//@import "partials/media";
 @import "partials/list-group";
-@import "partials/panels";
-@import "partials/responsive-embed";
-@import "partials/wells";
-@import "partials/close";
+//@import "partials/panels";
+//@import "partials/responsive-embed";
+//@import "partials/wells";
+//@import "partials/close";
 
 // Components w/ JavaScript
 /*

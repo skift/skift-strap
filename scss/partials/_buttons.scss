@@ -26,6 +26,8 @@
   font-family: 'montserrat',sans-serif;
   line-height: normal;
   
+  -webkit-appearance: none;
+  
   @include transition(all 0.3s);
 
   &,
@@ -48,13 +50,6 @@
   &.active {
     outline: 0;
     background-image: none;
-  }
-
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
-//     cursor: $cu;
-    
   }
 }
 .btn {
@@ -116,6 +111,24 @@
     border-color:$btn-black-border-active;
     background-color:$btn-black-bg-active;
     color:$btn-black-text-active;
+  }
+}
+
+.btn-white {
+  border-color:$white;
+  background-color:$white;
+  color:$black;
+  
+  &:hover {
+    border-color:$black;
+    background:$black;
+    color:$white;
+  }
+  
+  &:active {
+    border-color:$black;
+    background:$black;
+    color:$white;
   }
 }
 
