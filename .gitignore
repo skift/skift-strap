@@ -1,0 +1,17 @@
+*~
+.DS_Store
+.svn
+.cvs
+*.bak
+*.swp
+Thumbs.db
+
+# Ignore sass cache
+.sass-cache
+
+# Ignore any local .htaccess files
+.htaccess
+
+# Ignore any CodeKit files
+*.codekit
+config.rb
