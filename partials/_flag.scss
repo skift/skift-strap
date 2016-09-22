@@ -10,10 +10,22 @@
         
     &.flag-left {
         left:0;
+        text-align: left;
+        &.has-detail{
+            .flag-content {
+                left: 0;
+            }
+        }
     }
     
     &.flag-right {
         right:0;
+        text-align: right;
+        &.has-detail{
+            .flag-content {
+                right: 0;
+            }
+        }
     }
     
     &.flag-bottom {
@@ -66,7 +78,6 @@
             padding: 17px 25px 15px 25px;
             position: absolute;
             top:0;
-            left:0;
         }
         
         .hover-detail {
