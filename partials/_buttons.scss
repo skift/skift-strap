@@ -114,6 +114,24 @@
   }
 }
 
+.btn-green {
+  border-color:$deepGreen;
+  background-color:$deepGreen;
+  color:$white;
+  
+  &:hover {
+    border-color:rgba($deepGreen,0.8);
+    background-color:rgba($deepGreen,0.8);
+    color:$white;
+  }
+  
+  &:active {
+    border-color:rgba($deepGreen,0.7);
+    background-color:rgba($deepGreen,0.7);
+    color:$white;
+  }
+}
+
 .btn-white {
   border-color:$white;
   background-color:$white;
