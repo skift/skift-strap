@@ -1,4 +1,4 @@
-@mixin url-hover ($color: $red, $underline: -4px, $hover: -25px){
+@mixin url-hover ($color: $red, $underline: -1px, $hover: -25px){
     box-shadow: inset 0 $underline 0 rgba($color, 0.8);
     @include transition(box-shadow 0.3s ease-in-out);
 
