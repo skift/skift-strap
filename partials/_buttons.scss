@@ -165,6 +165,22 @@ a.btn {
     }
 }
 
+// cta
+.sgf-cta {
+    @extend .btn;
+	@extend .btn-green;
+
+    &.large {
+	    @extend .btn-lg;
+    }
+}
+
+.cta {
+	@extend .btn;
+	@extend .btn-primary;
+	@extend .btn-lg;
+}
+
 // Block button
 // --------------------------------------------------
 
