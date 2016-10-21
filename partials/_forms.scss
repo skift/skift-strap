@@ -389,6 +389,10 @@ output {
 
   // Placeholder
   @include placeholder;
+  
+  &textarea {
+      height:150px;
+  }
 
   // Disabled and read-only inputs
   //
@@ -419,6 +423,7 @@ textarea.form-control {
   height: auto;
 }
 
+/*
 .hs-form {
   .hs-form-field {    
     .hs-input {
@@ -444,6 +449,7 @@ textarea.form-control {
     }
   }
 }
+*/
 
 
 // Search inputs in iOS
