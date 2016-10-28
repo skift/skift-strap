@@ -173,12 +173,16 @@ a.btn {
     &.large {
 	    @extend .btn-lg;
     }
+    
+	white-space: normal;
 }
 
 .cta {
 	@extend .btn;
 	@extend .btn-primary;
 	@extend .btn-lg;
+	
+	white-space: normal;
 }
 
 // Block button
