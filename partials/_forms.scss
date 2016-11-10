@@ -428,6 +428,9 @@ textarea.form-control {
     .hs-input {
       @include form-control();
     }
+    textarea.hs-input {
+        height:100px;
+    }
   }
   
   .actions {
