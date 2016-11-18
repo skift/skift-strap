@@ -68,6 +68,11 @@
         color: #fff;
     }
     
+    &.flag-red {
+        background-color: $red;
+        color: #fff;
+    }
+    
     &.flag-sm {
         padding: 12px 15px 10px 15px;
         font-size: 18px;
