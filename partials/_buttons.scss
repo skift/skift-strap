@@ -120,6 +120,114 @@
     }
 }
 
+.btn-red {
+    border-color:$red;
+    background-color:$red;
+    color:$white;
+    
+    &:hover {
+        border-color:rgba($red,0.8);
+        background-color:rgba($red,0.8);
+        color:$white;
+    }
+    
+    &:active {
+        border-color:rgba($red,0.7);
+        background-color:rgba($red,0.7);
+        color:$white;
+    }
+}
+
+.btn-pink {
+    border-color:$pink;
+    background-color:$pink;
+    color:$white;
+    
+    &:hover {
+        border-color:rgba($pink,0.8);
+        background-color:rgba($pink,0.8);
+        color:$white;
+    }
+    
+    &:active {
+        border-color:rgba($pink,0.7);
+        background-color:rgba($pink,0.7);
+        color:$white;
+    }
+}
+
+.btn-purple {
+    border-color:$purple;
+    background-color:$purple;
+    color:$white;
+    
+    &:hover {
+        border-color:rgba($purple,0.8);
+        background-color:rgba($purple,0.8);
+        color:$white;
+    }
+    
+    &:active {
+        border-color:rgba($purple,0.7);
+        background-color:rgba($purple,0.7);
+        color:$white;
+    }
+}
+
+.btn-blue {
+    border-color:$blue;
+    background-color:$blue;
+    color:$white;
+    
+    &:hover {
+        border-color:rgba($blue,0.8);
+        background-color:rgba($blue,0.8);
+        color:$white;
+    }
+    
+    &:active {
+        border-color:rgba($blue,0.7);
+        background-color:rgba($blue,0.7);
+        color:$white;
+    }
+}
+
+.btn-bright-green {
+    border-color:$green;
+    background-color:$green;
+    color:$white;
+    
+    &:hover {
+        border-color:rgba($green,0.8);
+        background-color:rgba($green,0.8);
+        color:$white;
+    }
+    
+    &:active {
+        border-color:rgba($green,0.7);
+        background-color:rgba($green,0.7);
+        color:$white;
+    }
+}
+
+.btn-orange {
+    border-color:$orange;
+    background-color:$orange;
+    color:$white;
+    
+    &:hover {
+        border-color:rgba($orange,0.8);
+        background-color:rgba($orange,0.8);
+        color:$white;
+    }
+    
+    &:active {
+        border-color:rgba($orange,0.7);
+        background-color:rgba($orange,0.7);
+        color:$white;
+    }
+}
+
 .btn-white {
     border-color:$white;
     background-color:$white;
@@ -161,6 +269,20 @@
 a.btn {
     &.disabled, fieldset[disabled] & {
         pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
+    }
+}
+
+//navigation btn
+
+.menu-btn {
+    a {
+        @extend .btn, .btn-black;
+    }
+    
+    &.menu-btn-orange {
+        a {
+            @extend .btn, .btn-orange;
+        }
     }
 }
 
