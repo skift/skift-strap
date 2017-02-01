@@ -7,194 +7,328 @@
 // --------------------------------------------------
 
 @mixin btn {
-  display: inline-block;
-  margin-bottom: 0; // For input.btn
-  text-align: center;
-  vertical-align: middle;
-  touch-action: manipulation;
-  cursor: pointer;
-  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-  text-decoration: none;
-  white-space: nowrap;
-  
-  padding:15px 30px;
-  font-size:12px;
-  font-weight: 200;
-
-  border:1px solid $yellow;
-  
-  font-family: 'montserrat',sans-serif;
-  line-height: normal;
-  
-  -webkit-appearance: none;
-  
-  @include transition(all 0.3s);
-
-  &,
-  &:active,
-  &.active {
-    &:focus,
-    &.focus {
-
-    }
-  }
-
-  &:hover,
-  &:focus,
-  &.focus {
-//     color: $btn-default-color;
+    display: inline-block;
+    margin-bottom: 0; // For input.btn
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
     text-decoration: none;
-  }
+    
+    padding:15px 30px;
+    font-size:12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    
+    border:1px solid $yellow;
+    
+    font-family: 'montserrat',sans-serif;
+    line-height: normal;
+    
+    -webkit-appearance: none;
+    
+    @include transition(all 0.3s);
 
-  &:active,
-  &.active {
-    outline: 0;
-    background-image: none;
-  }
+    &:hover, &:focus, &.focus {
+    //     color: $btn-default-color;
+        text-decoration: none;
+    }
+    
+    &:active, &.active {
+        outline: 0;
+        background-image: none;
+    }
 }
 .btn {
-  @include btn();
+    @include btn();
 }
 
 @mixin btn-primary() {
-  border-color:$btn-primary-border;
-  background-color:$btn-primary-bg;
-  color:$btn-primary-text;
-  
-  &:hover {
-    border-color:$btn-primary-border-hover;
-    background-color:$btn-primary-bg-hover;
-    color:$btn-primary-text-hover;
-  }
-  
-  &:active {
-    border-color:$btn-primary-border-active;
-    background-color:$btn-primary-bg-active;
-    color:$btn-primary-text-active;
-  }
+    border-color:$btn-primary-border;
+    background-color:$btn-primary-bg;
+    color:$btn-primary-text;
+    
+    &:hover {
+        border-color:$btn-primary-border-hover;
+        background-color:$btn-primary-bg-hover;
+        color:$btn-primary-text-hover;
+    }
+    
+    &:active {
+        border-color:$btn-primary-border-active;
+        background-color:$btn-primary-bg-active;
+        color:$btn-primary-text-active;
+    }
 }
 
 .btn-primary, .btn-yellow {
-  @include btn-primary();
+    @include btn-primary();
 }
 
 .btn-clear {
-  border-color:$btn-clear-border;
-  background-color:$btn-clear-bg;
-  color:$btn-clear-text;
-  
-  &:hover {
-    border-color:$btn-clear-border-hover;
-    background-color:$btn-clear-bg-hover;
-    color:$btn-clear-text-hover;
-  }
-  
-  &:active {
-    border-color:$btn-clear-border-active;
-    background-color:$btn-clear-bg-active;
-    color:$btn-clear-text-active;
-  }
+    border-color:$btn-clear-border;
+    background-color:$btn-clear-bg;
+    color:$btn-clear-text;
+    
+    &:hover {
+        border-color:$btn-clear-border-hover;
+        background-color:$btn-clear-bg-hover;
+        color:$btn-clear-text-hover;
+    }
+    
+    &:active {
+        border-color:$btn-clear-border-active;
+        background-color:$btn-clear-bg-active;
+        color:$btn-clear-text-active;
+    }
 }
 
 .btn-black {
-  border-color:$btn-black-border;
-  background-color:$btn-black-bg;
-  color:$btn-black-text;
-  
-  &:hover {
-    border-color:$btn-black-border-hover;
-    background-color:$btn-black-bg-hover;
-    color:$btn-black-text-hover;
-  }
-  
-  &:active {
-    border-color:$btn-black-border-active;
-    background-color:$btn-black-bg-active;
-    color:$btn-black-text-active;
-  }
+    border-color:$btn-black-border;
+    background-color:$btn-black-bg;
+    color:$btn-black-text;
+    
+    &:hover {
+        border-color:$btn-black-border-hover;
+        background-color:$btn-black-bg-hover;
+        color:$btn-black-text-hover;
+    }
+    
+    &:active {
+        border-color:$btn-black-border-active;
+        background-color:$btn-black-bg-active;
+        color:$btn-black-text-active;
+    }
 }
 
 .btn-green {
-  border-color:$deepGreen;
-  background-color:$deepGreen;
-  color:$white;
-  
-  &:hover {
-    border-color:rgba($deepGreen,0.8);
-    background-color:rgba($deepGreen,0.8);
+    border-color:$deepGreen;
+    background-color:$deepGreen;
     color:$white;
-  }
-  
-  &:active {
-    border-color:rgba($deepGreen,0.7);
-    background-color:rgba($deepGreen,0.7);
+    
+    &:hover {
+        border-color:rgba($deepGreen,0.8);
+        background-color:rgba($deepGreen,0.8);
+        color:$white;
+    }
+    
+    &:active {
+        border-color:rgba($deepGreen,0.7);
+        background-color:rgba($deepGreen,0.7);
+        color:$white;
+    }
+}
+
+.btn-red {
+    border-color:$red;
+    background-color:$red;
     color:$white;
-  }
+    
+    &:hover {
+        border-color:rgba($red,0.8);
+        background-color:rgba($red,0.8);
+        color:$white;
+    }
+    
+    &:active {
+        border-color:rgba($red,0.7);
+        background-color:rgba($red,0.7);
+        color:$white;
+    }
+}
+
+.btn-pink {
+    border-color:$pink;
+    background-color:$pink;
+    color:$white;
+    
+    &:hover {
+        border-color:rgba($pink,0.8);
+        background-color:rgba($pink,0.8);
+        color:$white;
+    }
+    
+    &:active {
+        border-color:rgba($pink,0.7);
+        background-color:rgba($pink,0.7);
+        color:$white;
+    }
+}
+
+.btn-purple {
+    border-color:$purple;
+    background-color:$purple;
+    color:$white;
+    
+    &:hover {
+        border-color:rgba($purple,0.8);
+        background-color:rgba($purple,0.8);
+        color:$white;
+    }
+    
+    &:active {
+        border-color:rgba($purple,0.7);
+        background-color:rgba($purple,0.7);
+        color:$white;
+    }
+}
+
+.btn-blue {
+    border-color:$blue;
+    background-color:$blue;
+    color:$white;
+    
+    &:hover {
+        border-color:rgba($blue,0.8);
+        background-color:rgba($blue,0.8);
+        color:$white;
+    }
+    
+    &:active {
+        border-color:rgba($blue,0.7);
+        background-color:rgba($blue,0.7);
+        color:$white;
+    }
+}
+
+.btn-bright-green {
+    border-color:$green;
+    background-color:$green;
+    color:$white;
+    
+    &:hover {
+        border-color:rgba($green,0.8);
+        background-color:rgba($green,0.8);
+        color:$white;
+    }
+    
+    &:active {
+        border-color:rgba($green,0.7);
+        background-color:rgba($green,0.7);
+        color:$white;
+    }
+}
+
+.btn-orange {
+    border-color:$orange;
+    background-color:$orange;
+    color:$white;
+    
+    &:hover {
+        border-color:rgba($orange,0.8);
+        background-color:rgba($orange,0.8);
+        color:$white;
+    }
+    
+    &:active {
+        border-color:rgba($orange,0.7);
+        background-color:rgba($orange,0.7);
+        color:$white;
+    }
 }
 
 .btn-white {
-  border-color:$white;
-  background-color:$white;
-  color:$black;
-  
-  &:hover {
-    border-color:$black;
-    background:$black;
-    color:$white;
-  }
-  
-  &:active {
-    border-color:$black;
-    background:$black;
-    color:$white;
-  }
+    border-color:$white;
+    background-color:$white;
+    color:$black;
+    
+    &:hover {
+        border-color:$black;
+        background:$black;
+        color:$white;
+    }
+    
+    &:active {
+        border-color:$black;
+        background:$black;
+        color:$white;
+    }
+}
+
+.btn[disabled] {
+    @include opacity(0.6);
+    cursor: not-allowed;
 }
 
 .btn-xl {
-  padding:20px 40px;
-  font-size:16px;
+    padding:20px 40px;
+    font-size:16px;
 }
 
 .btn-lg {
-  padding:17px 35px;
-  font-size:14px;
+    padding:17px 35px;
+    font-size:14px;
 }
 
 .btn-sm {
-  padding:8px 20px;
-  font-size:12px;
+    padding:8px 20px;
+    font-size:12px;
 }
 
 .btn-xs {
-  padding:7px 15px;
-  font-size:10px;
+    padding:7px 15px;
+    font-size:10px;
 }
 
 a.btn {
-  &.disabled,
-  fieldset[disabled] & {
-    pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
-  }
+    &.disabled, fieldset[disabled] & {
+        pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
+    }
+}
+
+//navigation btn
+
+.menu-btn {
+    a {
+        @extend .btn, .btn-black;
+    }
+    
+    &.menu-btn-orange {
+        a {
+            @extend .btn, .btn-orange;
+        }
+    }
+}
+
+// cta
+.sgf-cta {
+    @extend .btn;
+	@extend .btn-green;
+
+    &.large {
+	    @extend .btn-lg;
+    }
+    
+	white-space: normal;
+}
+
+.cta {
+	@extend .btn;
+	@extend .btn-primary;
+	@extend .btn-lg;
+	
+	white-space: normal;
 }
 
 // Block button
 // --------------------------------------------------
 
 .btn-block {
-  display: block;
-  width: 100%;
+    display: block;
+    width: 100%;
 }
 
 // Vertically space out multiple block buttons
 .btn-block + .btn-block {
-  margin-top: 5px;
+    margin-top: 5px;
 }
 
 // Specificity overrides
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
-  &.btn-block {
-    width: 100%;
-  }
+    &.btn-block {
+        width: 100%;
+    }
 }
