@@ -15,26 +15,26 @@
     cursor: pointer;
     background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
     text-decoration: none;
-    
+
     padding:15px 30px;
     font-size:12px;
     font-weight: 600;
     text-transform: uppercase;
-    
+
     border:1px solid $yellow;
-    
+
     font-family: 'montserrat',sans-serif;
     line-height: normal;
-    
+
     -webkit-appearance: none;
-    
+
     @include transition(all 0.3s);
 
     &:hover, &:focus, &.focus {
     //     color: $btn-default-color;
         text-decoration: none;
     }
-    
+
     &:active, &.active {
         outline: 0;
         background-image: none;
@@ -48,13 +48,13 @@
     border-color:$btn-primary-border;
     background-color:$btn-primary-bg;
     color:$btn-primary-text;
-    
+
     &:hover {
         border-color:$btn-primary-border-hover;
         background-color:$btn-primary-bg-hover;
         color:$btn-primary-text-hover;
     }
-    
+
     &:active {
         border-color:$btn-primary-border-active;
         background-color:$btn-primary-bg-active;
@@ -70,13 +70,13 @@
     border-color:$btn-clear-border;
     background-color:$btn-clear-bg;
     color:$btn-clear-text;
-    
+
     &:hover {
         border-color:$btn-clear-border-hover;
         background-color:$btn-clear-bg-hover;
         color:$btn-clear-text-hover;
     }
-    
+
     &:active {
         border-color:$btn-clear-border-active;
         background-color:$btn-clear-bg-active;
@@ -88,13 +88,13 @@
     border-color:$btn-black-border;
     background-color:$btn-black-bg;
     color:$btn-black-text;
-    
+
     &:hover {
         border-color:$btn-black-border-hover;
         background-color:$btn-black-bg-hover;
         color:$btn-black-text-hover;
     }
-    
+
     &:active {
         border-color:$btn-black-border-active;
         background-color:$btn-black-bg-active;
@@ -106,13 +106,13 @@
     border-color:$deepGreen;
     background-color:$deepGreen;
     color:$white;
-    
+
     &:hover {
         border-color:rgba($deepGreen,0.8);
         background-color:rgba($deepGreen,0.8);
         color:$white;
     }
-    
+
     &:active {
         border-color:rgba($deepGreen,0.7);
         background-color:rgba($deepGreen,0.7);
@@ -124,13 +124,13 @@
     border-color:$red;
     background-color:$red;
     color:$white;
-    
+
     &:hover {
         border-color:rgba($red,0.8);
         background-color:rgba($red,0.8);
         color:$white;
     }
-    
+
     &:active {
         border-color:rgba($red,0.7);
         background-color:rgba($red,0.7);
@@ -142,13 +142,13 @@
     border-color:$pink;
     background-color:$pink;
     color:$white;
-    
+
     &:hover {
         border-color:rgba($pink,0.8);
         background-color:rgba($pink,0.8);
         color:$white;
     }
-    
+
     &:active {
         border-color:rgba($pink,0.7);
         background-color:rgba($pink,0.7);
@@ -160,13 +160,13 @@
     border-color:$purple;
     background-color:$purple;
     color:$white;
-    
+
     &:hover {
         border-color:rgba($purple,0.8);
         background-color:rgba($purple,0.8);
         color:$white;
     }
-    
+
     &:active {
         border-color:rgba($purple,0.7);
         background-color:rgba($purple,0.7);
@@ -178,13 +178,13 @@
     border-color:$blue;
     background-color:$blue;
     color:$white;
-    
+
     &:hover {
         border-color:rgba($blue,0.8);
         background-color:rgba($blue,0.8);
         color:$white;
     }
-    
+
     &:active {
         border-color:rgba($blue,0.7);
         background-color:rgba($blue,0.7);
@@ -196,13 +196,13 @@
     border-color:$green;
     background-color:$green;
     color:$white;
-    
+
     &:hover {
         border-color:rgba($green,0.8);
         background-color:rgba($green,0.8);
         color:$white;
     }
-    
+
     &:active {
         border-color:rgba($green,0.7);
         background-color:rgba($green,0.7);
@@ -214,13 +214,13 @@
     border-color:$orange;
     background-color:$orange;
     color:$white;
-    
+
     &:hover {
         border-color:rgba($orange,0.8);
         background-color:rgba($orange,0.8);
         color:$white;
     }
-    
+
     &:active {
         border-color:rgba($orange,0.7);
         background-color:rgba($orange,0.7);
@@ -232,13 +232,13 @@
     border-color:$white;
     background-color:$white;
     color:$black;
-    
+
     &:hover {
         border-color:$black;
         background:$black;
         color:$white;
     }
-    
+
     &:active {
         border-color:$black;
         background:$black;
@@ -283,10 +283,68 @@ a.btn {
     a {
         @extend .btn, .btn-black;
     }
-    
+
     &.menu-btn-orange {
         a {
             @extend .btn, .btn-orange;
+        }
+    }
+
+    &.menu-btn-blue {
+        a {
+            @extend .btn, .btn-blue;
+        }
+    }
+
+    &.menu-btn-yellow {
+        a {
+            @extend .btn, .btn-yellow;
+        }
+    }
+
+    &.menu-btn-green {
+        a {
+            @extend .btn, .btn-green;
+        }
+    }
+
+    &.menu-btn-purple {
+        a {
+            @extend .btn, .btn-purple;
+        }
+    }
+
+    &.menu-btn-red {
+        a {
+            @extend .btn, .btn-red;
+        }
+    }
+
+    &.menu-btn-bright-green {
+        a {
+            @extend .btn, .btn-bright-green;
+        }
+    }
+
+    &.menu-btn-clear {
+        a {
+            @extend .btn, .btn-clear;
+        }
+    }
+
+    &.menu-btn-black {
+        a {
+            @extend .btn, .btn-black;
+        }
+    }
+    &.menu-btn-pink {
+        a {
+            @extend .btn, .btn-pink;
+        }
+    }
+    &.menu-btn-white {
+        a {
+            @extend .btn, .btn-white;
         }
     }
 }
@@ -299,7 +357,7 @@ a.btn {
     &.large {
 	    @extend .btn-lg;
     }
-    
+
 	white-space: normal;
 }
 
@@ -307,7 +365,7 @@ a.btn {
 	@extend .btn;
 	@extend .btn-primary;
 	@extend .btn-lg;
-	
+
 	white-space: normal;
 }
 
