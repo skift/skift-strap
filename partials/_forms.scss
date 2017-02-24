@@ -88,7 +88,12 @@ input[type="checkbox"]:focus {
   position: relative;
   display: block;
   
-  &>.control-label {
+  label {
+      padding:0;
+      margin:0;
+  }
+  
+  .control-label {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -102,7 +107,7 @@ input[type="checkbox"]:focus {
     padding-left: 28px;
   }
   
-  &>.form-control {
+  .form-control {
     border: 0;
     position: absolute;
     top: 5px;
@@ -115,7 +120,7 @@ input[type="checkbox"]:focus {
     z-index: 2;
   }
   
-  &>.form-control+.control-label::before {
+  .form-control+.control-label::before {
     display: block;
     content: '';
     position: absolute;
@@ -130,11 +135,11 @@ input[type="checkbox"]:focus {
     transition: border-color 150ms ease-in
   }
   
-  &>.form-control:checked+.control-label::before {
+  .form-control:checked+.control-label::before {
     border: 1px solid $black;
   }
     
-  &>.form-control+.control-label::after {
+  .form-control+.control-label::after {
     position: absolute;
     display: inline-block;
     vertical-align: top;
@@ -152,7 +157,7 @@ input[type="checkbox"]:focus {
     opacity: 0;
   }
   
-  &>.form-control:checked+.control-label::after {
+  .form-control:checked+.control-label::after {
     transition: -webkit-transform 150ms ease-out, opacity 100ms ease-out;
     transition: transform 150ms ease-out, opacity 100ms ease-out;
     -webkit-transform: scale(1);
@@ -166,7 +171,12 @@ input[type="checkbox"]:focus {
   position: relative;
   display: block;
   
-  &>.control-label {
+  label {
+      padding:0;
+      margin:0;
+  }  
+  
+  .control-label {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -180,7 +190,7 @@ input[type="checkbox"]:focus {
     padding-left: 28px;
   }
   
-  &>.form-control {
+  .form-control {
     border: 0;
     position: absolute;
     top: 5px;
@@ -193,7 +203,7 @@ input[type="checkbox"]:focus {
     z-index: 2;
   }
   
-  &>.form-control+.control-label:before {
+  .form-control+.control-label:before {
     display: block;
     content: '';
     position: absolute;
@@ -206,7 +216,7 @@ input[type="checkbox"]:focus {
     border: 1px solid $black;
   }
     
-  &>.form-control+.control-label:after {
+  .form-control+.control-label:after {
     position: absolute;
     display: inline-block;
     vertical-align: top;
@@ -225,7 +235,7 @@ input[type="checkbox"]:focus {
     opacity: 0;
   }
   
-  &>.form-control:checked+.control-label:after {
+  .form-control:checked+.control-label:after {
     transition: -webkit-transform 150ms ease-out, opacity 100ms ease-out;
     transition: transform 150ms ease-out, opacity 100ms ease-out;
     -webkit-transform: scale(1);
