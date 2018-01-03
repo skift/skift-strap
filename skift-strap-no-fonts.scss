@@ -12,10 +12,8 @@ img {
 @import "palette/palette";
 
 // removed fonts to work with react
-/*
-@import "fonts/font-montserrat";
-@import "fonts/font-tradegothic";
-*/
+@import "fonts/font-montserrat-relpaths";
+@import "fonts/font-tradegothic-relpaths";
 
 // Core variables and mixins
 @import "partials/variables";
