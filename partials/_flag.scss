@@ -7,7 +7,7 @@
     padding: 17px 25px 15px 25px;
     font-size: 24px;
     line-height: 0.9em;
-        
+
     &.flag-left {
         left:0;
         text-align: left;
@@ -22,7 +22,7 @@
             }
         }
     }
-    
+
     &.flag-right {
         right:0;
         text-align: right;
@@ -37,59 +37,64 @@
             }
         }
     }
-    
+
     &.flag-bottom {
         bottom:0;
         top:auto;
     }
-    
+
     &.flag-yellow {
         background-color: $yellow;
         color: #000;
     }
-    
+
     &.flag-black {
         background-color: #000;
         color: #fff;
     }
-    
+
     &.flag-white {
         background-color: #fff;
         color: #000;
     }
-    
+
     &.flag-green {
         background-color: $deepGreen;
         color: #fff;
     }
-    
+
     &.flag-blue {
         background-color: $blue;
         color: #fff;
     }
-    
+
+    &.flag-purple {
+        background-color: #757dff;
+        color: #fff;
+    }
+
     &.flag-red {
         background-color: $red;
         color: #fff;
     }
-    
+
     &.flag-sm {
         padding: 12px 15px 10px 15px;
         font-size: 18px;
     }
-    
+
     &.flag-xs {
         padding: 9px 15px 8px 15px;
         font-size: 15px;
     }
-    
+
     &.has-detail {
         cursor: help;
-        background: none; 
+        background: none;
         padding:0;
         width:60%;
         max-width: 385px;
-        
+
         a{
             &:hover{
                 color: $black;
@@ -101,61 +106,66 @@
             position: absolute;
             top:0;
         }
-        
+
         .hover-detail {
             position: absolute;
             top:38px;
-            
-            padding:10px;   
-             
+
+            padding:10px;
+
             font-family: "montserrat", sans-serif;
             font-size:11px;
-            
+
             display: none;
         }
- 
+
         &:hover {
             .hover-detail {
                 display: block;
             }
         }
-        
+
         &.flag-sm {
             .flag-content {
                 padding: 12px 15px 10px 15px;
             }
-            
+
             .hover-detail {
                 top:30px;
             }
         }
-        
+
         &.flag-xs .hover-detail {
             top:40px;
         }
-        
+
         &.flag-yellow .hover-detail, &.flag-yellow .flag-content {
             background-color: $yellow;
             color: #000;
         }
-        
+
         &.flag-black .hover-detail, &.flag-black .flag-content {
             background-color: #000;
             color: #fff;
         }
-        
+
         &.flag-white .hover-detail, &.flag-white .flag-content {
             background-color: #fff;
             color: #000;
         }
-        
+
         &.flag-green .hover-detail, &.flag-green .flag-content {
             background-color: $deepGreen;
             color: #fff;
         }
-        
+
         &.flag-blue .hover-detail, &.flag-blue .flag-content {
             background-color: $blue;
+            color: #fff;
+        }
+
+        &.flag-purple .hover-detail, &.flag-purple .flag-content {
+            background-color: #757dff;
             color: #fff;
         }
     }
