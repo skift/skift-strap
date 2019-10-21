@@ -246,6 +246,21 @@
     }
 }
 
+.btn-red-text {
+    border-color: rgb(51, 51, 51);
+    background-color: $white;
+    color: rgb(219, 107, 97);
+
+    &:hover {
+        border-color: rgb(219, 107, 97);
+    }
+
+    &:active {
+        border-color: rgb(219, 107, 97);
+        color: rgb(219, 107, 97);
+    }
+}
+
 .btn[disabled] {
     @include opacity(0.6);
     cursor: not-allowed;
