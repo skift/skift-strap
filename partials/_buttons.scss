@@ -253,10 +253,13 @@
 
     &:hover {
         border-color: rgb(219, 107, 97);
+        background-color: $white;
+        color: rgb(219, 107, 97);
     }
 
     &:active {
         border-color: rgb(219, 107, 97);
+        background-color: $white;
         color: rgb(219, 107, 97);
     }
 }
