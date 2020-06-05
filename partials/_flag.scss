@@ -168,5 +168,10 @@
             background-color: #757dff;
             color: #fff;
         }
+
+        &.flag-red .hover-detail, &.flag-red .flag-content {
+            background-color: $red;
+            color: #fff;
+        }
     }
 }
