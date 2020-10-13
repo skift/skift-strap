@@ -176,7 +176,7 @@ input[type="checkbox"]:focus {
       margin:0;
   }  
   
-  .control-label {
+  .control-label:not(.hs-form-required) {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
